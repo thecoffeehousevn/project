@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="marketing_campaign_tree_view_inherit">
+			<field name="name">marketing.inherit.ttt</field>
+			<field name="model">marketing.campaign</field>
+			<field name="type">tree</field>
+			<field name="inherit_id" ref="marketing_campaign.view_marketing_campaign_tree" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='fixed_cost']" position="after">
+					<field name="code_compaign" />
+				</xpath>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="marketing_campaign_form_view_inherit">
+			<field name="name">marketing.inherit.ttt</field>
+			<field name="model">marketing.campaign</field>
+			<field name="type">form</field>
+			<field name="inherit_id" ref="marketing_campaign.view_marketing_campaign_form" />
+			<field name="arch" type="xml">
+				<xpath expr="/form/sheet/group/group/field[@name='fixed_cost']" position="after">
+					<field name="code_compaign" />
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</openerp>

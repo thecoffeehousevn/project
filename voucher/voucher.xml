@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	<record model="ir.ui.view" id="voucher_tree"> 
+			<field name="name">voucher_list</field> 
+			<field name="model">voucher</field> 
+			<field name="type">tree</field>			
+			<field name="arch" type="xml"> 		
+				<tree>
+					<field name="campagin"/>					
+					<field name="name"/>					
+					<field name="shop"/>							
+				</tree> 
+			</field> 
+		</record>	
+		
+		<record model="ir.ui.view" id="voucher_form"> 
+			<field name="name">voucher_list</field> 
+			<field name="model">voucher</field> 
+			<field name="type">form</field>			
+			<field name="arch" type="xml"> 		
+				<form>
+				<group>
+					<field name="campagin"/>						
+					<field name="shop"/>
+					<field name="quantum"/>
+					<field name="code_size"/>	
+					<field name="alphabet"/>	
+					<field name="stand"/>					
+				</group>
+				</form> 
+			</field> 
+		</record>
+		<record	id="action_form_voucher" model="ir.actions.act_window">
+            <field name="name">Voucher List</field>
+            <field name="res_model">voucher</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>           
+            <field name="view_id" ref="voucher_tree"/>            
+        </record>
+     </data>
+</openerp>
