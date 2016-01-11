@@ -13,8 +13,8 @@ class Voucher(osv.osv):
         'name': fields.char('Coupon Code', size=512, required=True),
         'campagin': fields.many2one('marketing.campaign', 'Campagin', required=True),
         'shop': fields.char('Shop', size=512, required=True),
-        'quantum': fields.integer('Quantumlyti', required=True),
-        'code_size': fields.integer('Size', required=True),
+        'quantum': fields.integer('Quantity', required=True),
+        'code_size': fields.integer('Lenght', required=True),
         'status': fields.boolean('Used', required=True),
         'alphabet': fields.integer('Alphabet', required=True),
         'stand': fields.integer('Stand', required=True),        
@@ -72,6 +72,7 @@ class Voucher(osv.osv):
         check_stand=0               
         for i in str(number):
             if (check_stand==stand):
+                test=i
                 test=test+text
                 check_stand=check_stand+1
             else:
