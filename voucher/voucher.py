@@ -10,7 +10,7 @@ class Voucher(osv.osv):
     _name = "voucher"
     _description = "xemtaomavoucher"
     _columns = {        
-        'name': fields.char('Voucher Code', size=512, required=True),
+        'name': fields.char('Coupon Code', size=512, required=True),
         'campagin': fields.many2one('marketing.campaign', 'Campagin', required=True),
         'shop': fields.char('Shop', size=512, required=True),
         'quantum': fields.integer('Quantumlyti', required=True),
@@ -18,6 +18,7 @@ class Voucher(osv.osv):
         'status': fields.boolean('Used', required=True),
         'alphabet': fields.integer('Alphabet', required=True),
         'stand': fields.integer('Stand', required=True),        
+        'create_time':fields.date('Create Time'),   
         } 
     
     def create(self, cr, uid, vals,context=None):
@@ -25,8 +26,8 @@ class Voucher(osv.osv):
         max=1
         code_campaign_obj = self.pool.get('marketing.campaign')
         campagin_id= vals['campagin']
-        read_code_campaign = code_campaign_obj.browse(cr, uid, campagin_id) 
-        
+        read_code_campaign = code_campaign_obj.browse(cr, uid, campagin_id)           
+        times_voucher= datetime.now()
         print read_code_campaign['code_compaign']
 
         size=vals['code_size']     
@@ -43,10 +44,10 @@ class Voucher(osv.osv):
             list=self.convert_alphabet_list(list,vals['stand'],vals['alphabet'])      
             for i in range(0,quantum-1):
                number=random.randrange(len(list))             
-               vals = {'name':read_code_campaign['code_compaign']+list[number], 'campagin':vals['campagin'],'shop':vals['shop'],'quantum':quantum,'code_size':vals['code_size'],'status':False,'alphabet':vals['alphabet'],'stand':vals['stand'],}
+               vals = {'name':read_code_campaign['code_compaign']+list[number], 'campagin':vals['campagin'],'shop':vals['shop'],'quantum':quantum,'code_size':vals['code_size'],'status':False,'alphabet':vals['alphabet'],'stand':vals['stand'],'create_time':times_voucher}
                super(Voucher,self).create(cr,uid,vals,context=context)
                list.remove(list[number])
-            vals = {'name':read_code_campaign['code_compaign']+list[1],'campagin':vals['campagin'],'shop':vals['shop'],'quantum':quantum,'code_size':vals['code_size'],'status':False,'alphabet':vals['alphabet'],'stand':vals['stand'],}
+            vals = {'name':read_code_campaign['code_compaign']+list[1],'campagin':vals['campagin'],'shop':vals['shop'],'quantum':quantum,'code_size':vals['code_size'],'status':False,'alphabet':vals['alphabet'],'stand':vals['stand'],'create_time':times_voucher}
             return super(Voucher,self).create(cr,uid,vals,context=context)
     
     def check_number(self,number,size):
@@ -77,4 +78,4 @@ class Voucher(osv.osv):
                 test=test+i
                 check_stand=check_stand+1
         return test
-            
+    

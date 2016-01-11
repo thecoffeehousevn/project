@@ -21,8 +21,10 @@
 				<xpath expr="/form/sheet/group/group/field[@name='fixed_cost']" position="after">
 					<field name="code_compaign" />
 				</xpath>
+				<xpath expr="/form/sheet/div[@name='button_box']" position="before">
+					 <button name="%(action_form_voucher_camp)d" type="action" string="Coupon List"></button>
+				</xpath>
 			</field>
 		</record>
-
 	</data>
 </openerp>

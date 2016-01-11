@@ -9,7 +9,8 @@
 				<tree>
 					<field name="campagin"/>					
 					<field name="name"/>					
-					<field name="shop"/>							
+					<field name="shop"/>	
+					<field name="create_time"/>							
 				</tree> 
 			</field> 
 		</record>	
@@ -31,12 +32,29 @@
 				</form> 
 			</field> 
 		</record>
+		<record id="voucher_list_search_view" model="ir.ui.view">
+            <field name="name">voucher_list</field>
+            <field name="model">voucher</field> 
+            <field name="arch" type="xml">
+                <search string="Search"> 
+	                <field name="campagin" string="Campagin"/>						          
+  				 </search>
+            </field>
+        </record>
 		<record	id="action_form_voucher" model="ir.actions.act_window">
-            <field name="name">Voucher List</field>
+            <field name="name">Coupon List</field>
             <field name="res_model">voucher</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>           
-            <field name="view_id" ref="voucher_tree"/>            
+            <field name="view_id" ref="voucher_tree"/>                        
         </record>
+        <record id="action_form_voucher_camp" model="ir.actions.act_window">        
+        	<field name="name">Coupon List</field>
+            <field name="res_model">voucher</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>           
+            <field name="view_id" ref="voucher_tree"/>     
+        	<field name="context">{'search_default_campagin': [active_id], 'default_campaign_id': active_id}</field>
+    	</record>
      </data>
 </openerp>
