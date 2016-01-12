@@ -6,7 +6,10 @@
     'category': '',
     'website': '',
     'summary': '',
-    'description': "",     
+    'description':  """
+Module này bổ sung cho module campaign vê mục coupon
+===================================================
+""",     
      'depends': ['marketing_campaign',                 
     ], 
     'data': [ 

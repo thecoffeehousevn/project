@@ -72,7 +72,7 @@ class Voucher(osv.osv):
         check_stand=0               
         for i in str(number):
             if (check_stand==stand):
-                test=i
+                test=test+i
                 test=test+text
                 check_stand=check_stand+1
             else:
