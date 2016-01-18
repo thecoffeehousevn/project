@@ -10,7 +10,10 @@ from mako.runtime import _inherit_from
 class marketing_campaign(osv.osv):   
     _inherit = "marketing.campaign"      
     _columns = {        
-        'code_compaign': fields.char('Compaign Code'),            
+        'code_compaign': fields.char('Compaign Code'),      
+        'start_day': fields.date('Start Time'),
+        'end_day': fields.date('End Time'),       
+        'shop': fields.char('Shop', size=512),       
         } 
     
     def show_voucher(self, cr, uid, vals,context=None):

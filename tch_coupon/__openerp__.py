@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'voucher',
-    'version': '0.1',
+    'name': 'tch_coupon',
+    'version': '0.2',
     'author': 'Lâm Gia Huy',
     'category': '',
     'website': '',
     'summary': '',
-    'description':  """
-Module này bổ sung cho module campaign vê mục coupon
-===================================================
-""",     
+    'description': "Module thêm mục coupon trong menu campaigns của module lead automation chức năng tạo ra coupon",     
      'depends': ['marketing_campaign',                 
     ], 
     'data': [ 

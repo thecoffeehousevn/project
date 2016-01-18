@@ -8,9 +8,7 @@
 			<field name="arch" type="xml"> 		
 				<tree>
 					<field name="campagin"/>					
-					<field name="name"/>					
-					<field name="shop"/>	
-					<field name="create_time"/>							
+					<field name="name"/>						
 				</tree> 
 			</field> 
 		</record>	
@@ -22,12 +20,15 @@
 			<field name="arch" type="xml"> 		
 				<form>
 				<group>
-					<field name="campagin"/>						
-					<field name="shop"/>
-					<field name="quantum"/>
-					<field name="code_size"/>	
-					<field name="alphabet"/>	
-					<field name="stand"/>					
+					<group>
+						<field name="campagin"/>
+						<field name="quantum"/>										
+					</group>	
+					<group>						
+						<field name="code_size"/>						
+						<field name="alphabet"/>	
+						<field name="stand"/>						
+					</group>						
 				</group>
 				</form> 
 			</field> 
